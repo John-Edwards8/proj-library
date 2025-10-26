@@ -1,0 +1,17 @@
+services:
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+
+  order-service:
+    build: ./order-service
+    ports:
+      - "8081:8081"
+    depends_on:
+      - redis
+
+  notification-service:
+    build: ./notification-service
+    depends_on:
+      - redis
