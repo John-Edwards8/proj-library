@@ -10,8 +10,15 @@ services:
       - "8081:8081"
     depends_on:
       - redis
+    environment:
+      - SPRING_DATA_REDIS_HOST=redis
+      - SPRING_DATA_REDIS_PORT=6379
 
   notification-service:
     build: ./notification-service
     depends_on:
       - redis
+    environment:
+      - SPRING_DATA_REDIS_HOST=redis
+      - SPRING_DATA_REDIS_PORT=6379
+    

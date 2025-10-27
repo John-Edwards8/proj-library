@@ -1,11 +1,8 @@
-server:
-  port: 8081
-
 spring:
   application:
-    name: order
+    name: notify
   data:
     redis:
       host: ${SPRING_DATA_REDIS_HOST:redis}
       port: ${SPRING_DATA_REDIS_PORT:6379}
-
+      client-type: lettuce
